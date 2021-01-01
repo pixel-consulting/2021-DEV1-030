@@ -37,7 +37,7 @@ The technologies used is Example is :
 
 ## Running the application locally
 
-There are several ways to run a Spring Boot application on your local machine. One way is to execute the `main` method in the `com.digitalstork.tictactoespring.TictactoespringApplication` class from your IDE.
+There are several ways to run a Spring Boot application on your local machine. One way is to execute the `main` method in the `com.digitalstork.tictactoe.TictactoeApplication` class from your IDE.
 
 Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/spring-boot/docs/current/reference/html/build-tool-plugins-maven-plugin.html) like so:
 
@@ -48,11 +48,21 @@ mvn spring-boot:run
 ## Test End Point with Postman
 Our example contains two end points:
 
-- Create Game: [localhost:8080/v0/tictactoe/new](http://localhost:8080/v0/tictactoe/new)
-- Play Game: [localhost:8080/v0/tictactoe/play](http://localhost:8080/v0/tictactoe/play)
+- Create Game: [localhost:8080/v0/tictactoe/new](http://localhost:8080/v0/tictactoe/new), With GET Method
+- Play Game: [localhost:8080/v0/tictactoe/play](http://localhost:8080/v0/tictactoe/play), With POST Method
 
-You execute the first end point ([localhost:8080/v0/tictactoe/new](http://localhost:8080/v0/tictactoe/new)) which will generate an ID which allows you to play the game in the second end point ([localhost:8080/v0/tictactoe/play](http://localhost:8080/v0/tictactoe/play)) we give the name of the player (X or O) and the values (between 0 and 2) of each row and column of our matrix (3X3)
+You execute the first end point ([localhost:8080/v0/tictactoe/new](http://localhost:8080/v0/tictactoe/new)) which will generate an id which allows you to play the game in the second end point ([localhost:8080/v0/tictactoe/play](http://localhost:8080/v0/tictactoe/play)) we give the name of the player (X or O), X is play the first time, and the values (between 0 and 2) of each row and column of our matrix (3X3)
 
+Note: for the second end point which had a POST method, we must introduce the data in Body-> raw-> JSON:
+
+```json
+{
+  "id": "540fc375-30bd-4bc6-b89e-26410968d209",
+  "player": "X",
+  "row": 0,
+  "col": 0
+}
+```
 ## Display of the result:
 the result will be displayed in the console (CMD, Temrinal ...) or on your IDE console
 
